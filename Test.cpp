@@ -29,6 +29,8 @@ TEST_CASE("Test replacement of p,f and b") {
     CHECK(find(text, "hafby") == string("happy"));
     CHECK(find(text, "habfy") == string("happy"));
     CHECK(find(text, "hapfy") == string("happy"));
+    CHECK(find(text, "HAFFy") == string("happy"));
+
 }
 
 TEST_CASE("Test replacement of lower-case and upper-case") {
@@ -142,6 +144,20 @@ TEST_CASE("Test replacement of multiple cases in a single word") {
     CHECK(find(text, "nEtWUrQ") == string("network"));
     CHECK(find(text, "nedwurc") == string("network"));
     CHECK(find(text, "Netwurk") == string("network"));
+}
+
+TEST_CASE("Test cases that should fail"){ 
+    string text("xxx explicitly yyy");
+    CHECK(find(text, "explicitly") != string("explicitly"));
+    CHECK(find(text, "explicitly") != string("explicitly"));
+    CHECK(find(text, "explicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+    CHECK(find(text, "eqplicitly") != string("explicitly"));
+
 
 }
-/* Add more test cases here */
